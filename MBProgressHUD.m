@@ -936,18 +936,18 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		CGContextMoveToPoint(context, 4, rect.size.height/2);
 		CGContextAddArcToPoint(context, 4, 4, radius + 4, 4, radius);
 		CGContextAddLineToPoint(context, rect.size.width - radius - 4, 4);
-		float angle = -acos(x/radius);
+		float angle = (float)-acos(x/radius);
 		if (isnan(angle)) angle = 0;
-		CGContextAddArc(context, rect.size.width - radius - 4, rect.size.height/2, radius, M_PI, angle, 0);
+		CGContextAddArc(context, rect.size.width - radius - 4, rect.size.height/2, radius, (float)M_PI, angle, 0);
 		CGContextAddLineToPoint(context, amount, rect.size.height/2);
 		
 		// bottom
 		CGContextMoveToPoint(context, 4, rect.size.height/2);
 		CGContextAddArcToPoint(context, 4, rect.size.height - 4, radius + 4, rect.size.height - 4, radius);
 		CGContextAddLineToPoint(context, rect.size.width - radius - 4, rect.size.height - 4);
-		angle = acos(x/radius);
+		angle = (float)acos(x/radius);
 		if (isnan(angle)) angle = 0;
-		CGContextAddArc(context, rect.size.width - radius - 4, rect.size.height/2, radius, -M_PI, angle, 1);
+		CGContextAddArc(context, rect.size.width - radius - 4, rect.size.height/2, radius, (float)-M_PI, angle, 1);
 		CGContextAddLineToPoint(context, amount, rect.size.height/2);
 		
 		CGContextFillPath(context);
